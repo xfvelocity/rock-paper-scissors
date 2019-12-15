@@ -61,12 +61,13 @@
         padding: 20px 40px;
         margin: 20px;
         box-shadow: inset 0 0 10px #3b3b3b;
+        cursor: pointer;
 
         img {
             width: 40px;
         }
 
-        a:hover {
+        &:hover {
             transform: scale(1.05);
         }
     }
