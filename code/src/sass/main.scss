@@ -86,6 +86,17 @@
     }
 }
 
+.chosenp-container {
+    @include flex;
+    justify-content: center;
+    display: none;
+    #chosen-p {
+        text-align: center;
+        text-transform: none;
+        font-size: 20px;
+    }
+}
+
 .rules {
     width: 30%;
     margin: 60px auto;
