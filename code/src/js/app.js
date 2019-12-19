@@ -6,14 +6,14 @@ const scoreNumber = document.getElementById('score');
 const competition = document.createElement('div');
 const chosenP = document.getElementById('chosenP');
 
+const target = (e) => {
+    e.preventDefault();
+    chosenOption = e.target.id;
+    showOption();
+}
+
 options.forEach(option => {
-    option.addEventListener('click', (e) => {
-        e.preventDefault();
-        target = e.target;
-        chosenOption = e.target.id;
-        showOption();
-        option.removeEventListener('click');
-    })
+    option.addEventListener('click', target);
 })
 
 // Computer generated options
@@ -56,6 +56,10 @@ const showOption = () => {
         options[0].style.display = 'none';
         options[1].style.display = 'none';
     } 
+    options.forEach(option => {
+        option.removeEventListener('click', target);
+    })
+    
 
     // Displays Player 1 vs Player 2
     document.querySelector('.chosenp-container').style.display = 'flex';
@@ -118,7 +122,6 @@ const optionsArray = [
     generateRock
 ]
 
-// Displays the current score
 
 
 
