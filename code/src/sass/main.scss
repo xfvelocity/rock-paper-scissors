@@ -1,5 +1,14 @@
 @import 'config';
-
+.notice {
+    background: rgb(85, 85, 85);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    text-transform: none;
+    p {
+        margin: 0;
+    }
+}
 .heading {
     border: 2px solid rgb(168, 168, 168);
     width: 70%;
@@ -11,6 +20,10 @@
     justify-content: space-between;
     align-items: center;
     color: rgb(233, 230, 230);
+
+    @include tablet-mode {
+        max-width: 400px;
+    }
 
     li {
         line-height: 1;
@@ -71,6 +84,15 @@
         &:hover {
             transform: scale(1.05);
         }
+
+        @include tablet-mode {
+            width: 165px;
+            padding: 30px;
+
+            img {
+                width: 60px;
+            }
+        }
     }
 
     .paper {
@@ -127,7 +149,7 @@
 
 .rules {
     width: 30%;
-    margin: 100px auto;
+    margin: 60px auto;
     border: 2px solid grey;
     text-align: center;
     padding: 5px;
@@ -135,4 +157,21 @@
     border-radius: 10px;
     font-weight: 500;
     letter-spacing: 1.8px;
+
+    @include tablet-mode {
+        max-width: 180px;
+    }
+}
+
+@media (min-width: 860px) {
+    .container {
+        width: 70%;
+        margin: 10px auto;
+    }
+}
+
+@media (min-width: 1250px) {
+    .container {
+        width: 55%;
+    }
 }

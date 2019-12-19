@@ -41,4 +41,9 @@ a {
   align-items: center;
 }
 
+@mixin tablet-mode {
+  @media (min-width: 600px) { @content; }
+}
+
+
  
