@@ -90,19 +90,48 @@
     @include flex;
     justify-content: center;
     display: none;
+    p {
+        margin: 0;
+    }
     #chosen-p {
         text-align: center;
         text-transform: none;
         font-size: 20px;
+
+    }
+}
+
+.results {
+    text-align: center;
+    padding: 40px 0;
+    display: none;
+
+    h2 {
+        font-size: 32px;
+        text-shadow: 2px 2px 4px #000;
+    }
+
+    a {
+        background: white;
+        padding: 15px 40px;
+        color: rgb(67, 68, 75);
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 20px;
+
+        &:hover {
+            transform: scale(1.10);
+        }
     }
 }
 
 .rules {
     width: 30%;
-    margin: 60px auto;
+    margin: 100px auto;
     border: 2px solid grey;
     text-align: center;
-    padding: 7px;
+    padding: 5px;
+    font-size: 14px;
     border-radius: 10px;
     font-weight: 500;
     letter-spacing: 1.8px;

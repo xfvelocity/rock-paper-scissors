@@ -4,17 +4,17 @@ const options = document.querySelectorAll('.option');
 const optionContainer = document.querySelector('.option-container');
 const scoreNumber = document.getElementById('score');
 const competition = document.createElement('div');
-const chosenP = document.getElementById('chosenP');
+const results = document.querySelector('.results h2');
 
 const target = (e) => {
     e.preventDefault();
     chosenOption = e.target.id;
     showOption();
-}
+};
 
 options.forEach(option => {
     option.addEventListener('click', target);
-})
+});
 
 // Computer generated options
 const generatePaper = () => {
@@ -22,26 +22,26 @@ const generatePaper = () => {
     const img = document.createElement('img');
     img.src = 'img/icon-paper.svg';
     competition.appendChild(img);
-}
+};
 
 const generateRock = () => {
     competition.classList.add('rock');
     const img = document.createElement('img');
     img.src = 'img/icon-rock.svg';
     competition.appendChild(img);
-}
+};
 
 const generateScissors = () => {
     competition.classList.add('scissors');
     const img = document.createElement('img');
     img.src = 'img/icon-scissors.svg';
     competition.appendChild(img);
-}
+};
 
 const generateRandomNum = () => {
     const randomNum = Math.floor(Math.random() * 3);
     optionsArray[randomNum]();
-}
+};
 
 const showOption = () => {
     if(chosenOption === 'Paper') {
@@ -58,7 +58,7 @@ const showOption = () => {
     } 
     options.forEach(option => {
         option.removeEventListener('click', target);
-    })
+    });
     
 
     // Displays Player 1 vs Player 2
@@ -74,53 +74,54 @@ const showOption = () => {
     competition.classList.add('option', 'competition');
     
     setTimeout(Computer,1500);
-}
+};
 
 const Computer = () => {
     generateRandomNum();
     scoreSystem();
-}
+};
 
 const scoreSystem = () => {
+    document.querySelector('.results').style.display = 'block';
     if(chosenOption === 'Paper') {
         if(competition.classList.contains('scissors')){
-            console.log('You lose');
+            results.innerHTML = 'You Lose'
         } else if (competition.classList.contains('paper')) {
-            console.log('It\'s a Draw');
+            results.innerHTML = 'It\'s a Draw'
         } else if (competition.classList.contains('rock')) {
-            console.log('You Win');
+            results.innerHTML = 'You Win';
             score += 1;
         }
     }
     if(chosenOption === 'Scissors') {
         if(competition.classList.contains('rock')){
-            console.log('You lose');
+            results.innerHTML = 'You Lose';
         } else if (competition.classList.contains('scissors')) {
-            console.log('It\'s a Draw');
+            results.innerHTML = 'It\'s a Draw';
         } else if (competition.classList.contains('paper')) {
-            console.log('You Win');
+            results.innerHTML = 'You Win';
             score += 1;
         }
     }
     if(chosenOption === 'Rock') {
         if(competition.classList.contains('paper')){
-            console.log('You lose');
+            results.innerHTML = 'You Lose';
         } else if (competition.classList.contains('rock')) {
-            console.log('It\'s a Draw');
+            results.innerHTML = 'It\'s a Draw';
         } else if (competition.classList.contains('scissors')) {
-            console.log('You Win');
+            results.innerHTML = 'You Win';
             score += 1;
         }
     }
     scoreNumber.innerHTML = score;
-}
+};
 
 // Array of functions to generate an option
 const optionsArray = [
     generatePaper,
     generateScissors,
     generateRock
-]
+];
 
 
 
