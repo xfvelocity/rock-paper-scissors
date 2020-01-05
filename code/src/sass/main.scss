@@ -137,6 +137,7 @@
         border-radius: 10px;
         font-weight: bold;
         font-size: 20px;
+        cursor: pointer;
 
         &:hover {
             transform: scale(1.10);
@@ -157,6 +158,36 @@
 
     @include tablet-mode {
         max-width: 180px;
+    }
+}
+
+.open-rules {
+    position: absolute;
+    top: 220px;
+    left: 70px;
+    z-index: 100;
+    @include flex;
+    justify-content: center;
+    padding: 30px 10px;
+    border: 2px solid rgb(168, 168, 168);
+    width: 70%;
+    border-radius: 10px;
+    text-transform: none;
+    background: linear-gradient(8deg, rgb(9, 13, 27) 0%, rgb(15, 22, 44) 24%, rgba(30,51,82,1) 100%);
+    display: none;
+
+
+
+    h3 {
+        width: 100%;
+        margin: 5px;
+        text-align: center;;
+    }
+
+    p {
+        width: 70%;
+        margin: 0 auto;
+
     }
 }
 

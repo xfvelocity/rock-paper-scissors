@@ -1,5 +1,6 @@
 // Returns the chosen option
 let chosenOption;
+let option;
 
 const target = (e) => {
     e.preventDefault();
@@ -11,7 +12,7 @@ const target = (e) => {
 const optionsContainer = document.querySelector('.option-container');
 
 const generateOptions = (type) => {
-    const option = document.createElement('div');
+    option = document.createElement('div');
     optionsContainer.appendChild(option);
     option.classList.add('option', type);
     option.setAttribute('id', type)
@@ -53,10 +54,12 @@ const optionChosen = (type) => {
     playersContainer.appendChild(players);
     players.setAttribute('id', 'chosen-p');
     players.innerHTML = '<strong>Player 1</strong> vs <strong>Player 2</strong>';
+    option.removeEventListener('click', target);
     setTimeout(function() {
         generateOptions(optionsArray[randomNum]);
         computersChoice = optionsContainer.getElementsByClassName('option')[1];
         // Selects second child in the options container
+        option.removeEventListener('click', target);
     }, 500);  
 }
 
@@ -72,6 +75,16 @@ const showResults = () => {
     resultsContainer.appendChild(resultsA);
     resultsA.setAttribute('id', 'play-again');
     resultsA.innerHTML = 'Play Again';
+
+    // Adds function to play again button
+    resultsA.addEventListener('click', (e) => {
+        e.preventDefault();
+        removeOptions();
+        resultsContainer.removeChild(resultsH2);
+        resultsContainer.removeChild(resultsA);
+        playersContainer.removeChild(players);
+        freshBoard();
+    })
 }
 
 // Run the program
@@ -139,4 +152,12 @@ const programRun = () => {
             break;
     }
 }
+
+const rulesButton = document.querySelector('.rules a');
+const rules = document.querySelector('.open-rules');
+
+rulesButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    rules.style.display = 'flex';
+})
 
