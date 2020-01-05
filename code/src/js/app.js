@@ -41,29 +41,101 @@ const removeOptions = () => {
 const optionsArray = ['paper', 'scissors', 'rock'];
 const randomNum = Math.floor(Math.random() * 3);
 
-// Generates computers option and selects it
-const selectComputersChoice = () => {
-    generateOptions(optionsArray[randomNum]);
-    const computersChoice = optionsContainer.getElementsByTagName('div')[1];
-    console.log(computersChoice);
+/* Removes all options, regnerates the chosen 
+option and displays the computers choice */
+const playersContainer = document.querySelector('.chosenp-container');
+const players = document.createElement('p');
+let computersChoice;
+
+const optionChosen = (type) => {
+    removeOptions();
+    generateOptions(type);
+    playersContainer.appendChild(players);
+    players.setAttribute('id', 'chosen-p');
+    players.innerHTML = '<strong>Player 1</strong> vs <strong>Player 2</strong>';
+    setTimeout(function() {
+        generateOptions(optionsArray[randomNum]);
+        computersChoice = optionsContainer.getElementsByClassName('option')[1];
+        // Selects second child in the options container
+    }, 500);  
+}
+
+
+// Displays who won & play again button
+const resultsContainer = document.querySelector('.results');
+const resultsH2 = document.createElement('h2');
+const resultsA = document.createElement('a');
+
+const showResults = () => {
+    resultsContainer.appendChild(resultsH2);
+    resultsH2.innerHTML = decision;
+    resultsContainer.appendChild(resultsA);
+    resultsA.setAttribute('id', 'play-again');
+    resultsA.innerHTML = 'Play Again';
 }
 
 // Run the program
+let decision;
+let score = 0;
+const scoreContainer = document.querySelector('#score');
+
 const programRun = () => {
     switch(chosenOption) {
         case 'paper':
-            removeOptions();
-            generateOptions('paper');
-            setTimeout(selectComputersChoice, 500);
-            
+            optionChosen('paper');
+            setTimeout(function(){
+                switch(computersChoice.id){
+                   case 'paper':
+                       decision = 'It\'s a Draw!';
+                       break;
+                    case 'scissors':
+                        decision = 'You Lose!';
+                        break;
+                    case 'rock':
+                        decision = 'You Win!';
+                        score += 1;
+                        console.log(score);
+                        scoreContainer.innerHTML = score;
+                        break;
+                }
+                showResults();
+            },500);
             break;
         case 'scissors':
-            removeOptions();
-            generateOptions('scissors');
+            optionChosen('scissors');
+            setTimeout(function(){
+                switch(computersChoice.id){
+                   case 'paper':
+                       decision = 'You Win!';
+                       score += 1;
+                       break;
+                    case 'scissors':
+                        decision = 'It\'s a Draw';
+                        break;
+                    case 'rock':
+                        decision = 'You Lose!';
+                        break;
+                }
+                showResults();
+            },500);
             break;
         case 'rock':
-            removeOptions();
-            generateOptions('rock');
+            optionChosen('rock');
+            setTimeout(function(){
+                switch(computersChoice.id){
+                   case 'paper':
+                       decision = 'You Lose!';
+                       break;
+                    case 'scissors':
+                        decision = 'You Win!';
+                        score += 1;
+                        break;
+                    case 'rock':
+                        decision = 'It\'s a Draw';
+                        break;
+                }
+                showResults();
+            },500);
             break;
     }
 }
