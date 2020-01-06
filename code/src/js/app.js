@@ -102,12 +102,13 @@ const programRun = () => {
                        decision = 'It\'s a Draw!';
                        break;
                     case 'scissors':
-                        decision = 'You Lose!';
+                        decision = 'You Lose!'
+                        score -= 1;
+                        scoreContainer.innerHTML = score;
                         break;
                     case 'rock':
                         decision = 'You Win!';
                         score += 1;
-                        console.log(score);
                         scoreContainer.innerHTML = score;
                         break;
                 }
@@ -121,12 +122,15 @@ const programRun = () => {
                    case 'paper':
                        decision = 'You Win!';
                        score += 1;
+                       scoreContainer.innerHTML = score;
                        break;
                     case 'scissors':
                         decision = 'It\'s a Draw';
                         break;
                     case 'rock':
                         decision = 'You Lose!';
+                        score -= 1;
+                        scoreContainer.innerHTML = score;
                         break;
                 }
                 showResults();
@@ -138,10 +142,13 @@ const programRun = () => {
                 switch(computersChoice.id){
                    case 'paper':
                        decision = 'You Lose!';
+                       score -= 1;
+                       scoreContainer.innerHTML = score;
                        break;
                     case 'scissors':
                         decision = 'You Win!';
                         score += 1;
+                        scoreContainer.innerHTML = score;
                         break;
                     case 'rock':
                         decision = 'It\'s a Draw';
@@ -153,11 +160,4 @@ const programRun = () => {
     }
 }
 
-const rulesButton = document.querySelector('.rules a');
-const rules = document.querySelector('.open-rules');
-
-rulesButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    rules.style.display = 'flex';
-})
 

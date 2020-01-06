@@ -1,7 +1,5 @@
 To-Do
 
---- Create rules page - Add a closing button to rules & make responsive
-
 - Add functionality to the 'Play Again' button
 - Add an animation to the score when a player wins /
   winning animation to the winning player
@@ -14,6 +12,7 @@ Bugs
 Future Plans
 
 - Add Player 2 score
+- Add a Rules page - Responsive issues (currently removed)
 - Animated option when chosen
 - Add game types (Best of 5, Unlimited, Custom score)
 
