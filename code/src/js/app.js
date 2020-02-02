@@ -80,9 +80,9 @@ const showResults = () => {
     resultsA.addEventListener('click', (e) => {
         e.preventDefault();
         removeOptions();
-        resultsContainer.removeChild(resultsH2);
-        resultsContainer.removeChild(resultsA);
-        playersContainer.removeChild(players);
+        resultsH2.remove();
+        resultsA.remove();
+        players.remove();
         freshBoard();
     })
 }
