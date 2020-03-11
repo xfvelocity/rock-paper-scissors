@@ -56,6 +56,7 @@ const optionChosen = (type) => {
     players.innerHTML = '<strong>Player 1</strong> vs <strong>Player 2</strong>';
     option.removeEventListener('click', target);
     setTimeout(function() {
+        console.log(randomNum);
         generateOptions(optionsArray[randomNum]);
         computersChoice = optionsContainer.getElementsByClassName('option')[1];
         // Selects second child in the options container
