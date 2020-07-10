@@ -90,8 +90,10 @@ const showResults = () => {
 
 // Run the program
 let decision;
-let score = 0;
-const scoreContainer = document.querySelector('#score');
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const playerOne = document.querySelector('#playerOne');
+const playerTwo = document.querySelector('#playerTwo');
 
 const programRun = () => {
     switch(chosenOption) {
@@ -104,12 +106,13 @@ const programRun = () => {
                        break;
                     case 'scissors':
                         decision = 'You Lose!'
-                        scoreContainer.innerHTML = score;
+                        playerTwoScore += 1;
+                        playerTwo.innerHTML = playerTwoScore;
                         break;
                     case 'rock':
                         decision = 'You Win!';
-                        score += 1;
-                        scoreContainer.innerHTML = score;
+                        playerOneScore += 1;
+                        playerOne.innerHTML = playerOneScore;
                         break;
                 }
                 showResults();
@@ -121,15 +124,16 @@ const programRun = () => {
                 switch(computersChoice.id){
                    case 'paper':
                        decision = 'You Win!';
-                       score += 1;
-                       scoreContainer.innerHTML = score;
+                       playerOneScore += 1;
+                       playerOne.innerHTML = playerOneScore;
                        break;
                     case 'scissors':
                         decision = 'It\'s a Draw';
                         break;
                     case 'rock':
                         decision = 'You Lose!';
-                        scoreContainer.innerHTML = score;
+                        playerTwoScore += 1;
+                        playerTwo.innerHTML = playerTwoScore;
                         break;
                 }
                 showResults();
@@ -141,12 +145,13 @@ const programRun = () => {
                 switch(computersChoice.id){
                    case 'paper':
                        decision = 'You Lose!';
-                       scoreContainer.innerHTML = score;
+                       playerTwoScore += 1;
+                       playerTwo.innerHTML = playerTwoScore;
                        break;
                     case 'scissors':
                         decision = 'You Win!';
-                        score += 1;
-                        scoreContainer.innerHTML = score;
+                        playerOneScore += 1;
+                        playerOne.innerHTML = playerOneScore;
                         break;
                     case 'rock':
                         decision = 'It\'s a Draw';
