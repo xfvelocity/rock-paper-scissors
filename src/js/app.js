@@ -104,7 +104,6 @@ const programRun = () => {
                        break;
                     case 'scissors':
                         decision = 'You Lose!'
-                        score -= 1;
                         scoreContainer.innerHTML = score;
                         break;
                     case 'rock':
@@ -130,7 +129,6 @@ const programRun = () => {
                         break;
                     case 'rock':
                         decision = 'You Lose!';
-                        score -= 1;
                         scoreContainer.innerHTML = score;
                         break;
                 }
@@ -143,7 +141,6 @@ const programRun = () => {
                 switch(computersChoice.id){
                    case 'paper':
                        decision = 'You Lose!';
-                       score -= 1;
                        scoreContainer.innerHTML = score;
                        break;
                     case 'scissors':
