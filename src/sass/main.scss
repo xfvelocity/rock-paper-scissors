@@ -19,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     color: rgb(233, 230, 230);
 
     img {
@@ -31,6 +32,7 @@
 
     .score-container {
         display: flex;
+        margin: 10px 0;
         .score {
             background: white;
             color: rgb(102, 102, 102);
